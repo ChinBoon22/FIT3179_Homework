@@ -61,7 +61,7 @@
           "type": "quantitative",
           "scale": {
             "type": "linear",
-            "domain": [10, 12, 13, 14, 15, 17, 20, 25, 30],
+            "domain": [10, 12, 13, 14, 15, 17, 20, 23, 32],
             "range": [
               "#FFBF00",
               "#F4BB44",
@@ -71,7 +71,7 @@
               "#FF4500",
               "#FF4433",
               "#E41B17",
-              "#8B0000"
+              "#600000"
             ]
           },
           "title": "Temperature (°C)"
