@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Global Temperature Distribution (29-08-2023 - 13-09-2023)",
+  "width": 800,
+  "height": 400,
+  "projection": { "type": "equalEarth" },
+  "layer": [
+    {
+      "data": {
+        "url": "../Dataset/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "gray",
+        "strokeDash": [1, 1],
+        "fill": "#D3D3D3"
+      },
+      "encoding": {
+        "color": {
+          "value": "#D3D3D3"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+        "format": { "type": "topojson", "feature": "oceans" }
+      },
+      "mark": { "type": "geoshape", "fill": "skyblue" }
+    },
+    {
+      "data": {
+        "url": "../Dataset/ne_110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_admin_0_countries"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.NAME",
+          "from": {
+            "data": {
+              "url": "../Dataset/aggregated_temperature.csv"
+            },
+            "key": "country",
+            "fields": ["temperature_celsius"]
+          }
+        }
+      ],
+      "mark": { "type": "geoshape" },
+      "encoding": {
+        "color": {
+          "field": "temperature_celsius",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [10, 12, 13, 15, 20, 25, 30],
+            "range": [
+              "#FFBF00",
+              "#FF9B50",
+              "#FF7F34",
+              "#fe7f4e",
+              "#FF4500",
+              "#E41B17",
+              "#8B0000"
+            ]
+          },
+          "title": "Temperature (°C)"
+        },
+        "tooltip": [
+          { "field": "properties.NAME", "type": "nominal", "title": "Country" },
+          {
+            "field": "temperature_celsius",
+            "type": "quantitative",
+            "title": "Temperature (°C)"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "../Dataset/ne_110m.json",
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "gray",
+        "strokeDash": [1, 1],
+        "fill": null
+      }
+    }
+  ]
+}
