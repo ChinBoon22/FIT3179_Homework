@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Global Temperature Distribution (29-08-2023 - 13-09-2023)",
+  "title": "Global Average Temperature Distribution (29-08-2023 - 13-09-2023)",
   "width": 800,
   "height": 400,
   "padding": 0,
@@ -81,7 +81,7 @@
           {
             "field": "temperature_celsius",
             "type": "quantitative",
-            "title": "Temperature (°C)"
+            "title": "Average Temperature (°C)"
           }
         ]
       }
