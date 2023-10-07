@@ -1,7 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Cloud Cover, Humidity, and Precipitation by Country",
-  "data": { "url": "../Dataset/aggregated_weather.csv" },
+  "data": {
+    "url": "https://raw.githubusercontent.com/ChinBoon22/FIT3179_Homework/main/Dataset/aggregated_weather.csv"
+  },
   "width": 400,
   "height": 400,
   "title": "Global Humidity, Cloud Cover and Precipitation",
